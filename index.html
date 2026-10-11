@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Class 10 Chapter Tests</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one calm column, like an exam booklet. The running test puts an
+   exam-hall question palette beside the question on wide screens and under it on a phone. */
+:root {
+  --paper: #f1f5f4;
+  --sheet: #ffffff;
+  --ink: #13232a;
+  --muted: #55686f;
+  --line: #d2dddb;
+  --accent: #0a6767;
+  --accent-ink: #ffffff;
+  --accent-soft: #d8ece9;
+  --good: #19783f;
+  --good-soft: #def2e5;
+  --bad: #b3372a;
+  --bad-soft: #f9e2de;
+  --warn: #8f6209;
+  --warn-soft: #f7ebcd;
+  --review: #5c43a8;
+  --review-soft: #e7e1f6;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0e1618; --sheet: #162124; --ink: #e5eeec; --muted: #94a7a9; --line: #29393c;
+    --accent: #56c5b8; --accent-ink: #06201f; --accent-soft: #17383a;
+    --good: #62cf8c; --good-soft: #163324; --bad: #f08273; --bad-soft: #3c1d19;
+    --warn: #e3b558; --warn-soft: #382c12; --review: #ad9af0; --review-soft: #2a2347;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0e1618; --sheet: #162124; --ink: #e5eeec; --muted: #94a7a9; --line: #29393c;
+  --accent: #56c5b8; --accent-ink: #06201f; --accent-soft: #17383a;
+  --good: #62cf8c; --good-soft: #163324; --bad: #f08273; --bad-soft: #3c1d19;
+  --warn: #e3b558; --warn-soft: #382c12; --review: #ad9af0; --review-soft: #2a2347;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+}
+.wrap { max-width: 1000px; margin: 0 auto; padding-inline: 16px; padding-block: 16px 56px; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.25rem; font-weight: 700; }
+p { margin: 0; }
+code, .mono { font-family: var(--font-data); font-size: 0.9em; }
+
+/* Header */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.omr { display: flex; gap: 4px; }
+.omr i { width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--ink); }
+.omr i.on { background: var(--accent); border-color: var(--accent); }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
+.brand-sub { color: var(--muted); font-size: 0.82rem; }
+.tabs { display: flex; gap: 4px; background: var(--sheet); border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
+.tabs button { border: 0; background: transparent; border-radius: 999px; padding: 6px 16px; cursor: pointer; color: var(--muted); font-weight: 700; }
+.tabs button[aria-current="page"] { background: var(--ink); color: var(--paper); }
+
+/* Shared pieces */
+.page { display: flex; flex-direction: column; gap: 22px; }
+.page.narrow { max-width: 640px; }
+.lede { color: var(--muted); max-width: 62ch; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.btn { border: 1.5px solid var(--line); background: var(--sheet); border-radius: 10px; padding: 9px 16px; cursor: pointer; font-weight: 700; text-decoration: none; color: var(--ink); display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.btn:hover { border-color: var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.big { padding: 13px 26px; font-size: 1.05rem; }
+.btn.small { padding: 5px 11px; font-size: 0.88rem; }
+.btn.danger { color: var(--bad); }
+.btn:disabled { opacity: 0.55; cursor: default; }
+.link { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-weight: 700; align-self: flex-start; }
+.pill { display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); white-space: nowrap; }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); }
+.pill.good { background: var(--good-soft); color: var(--good); }
+.note { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; color: var(--muted); }
+.msg { font-weight: 700; }
+.msg.ok { color: var(--good); }
+.msg.err { color: var(--bad); }
+
+/* Test list */
+.tests { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.test-row { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; }
+.test-main { min-width: 0; flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; }
+.meta { color: var(--muted); font-size: 0.93rem; }
+.linkhint { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); font-size: 0.9rem; border-top: 1px dashed var(--line); padding-top: 12px; }
+.mine { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.mine li { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.mine .score { font-family: var(--font-data); font-weight: 600; }
+
+/* Start screen */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; margin: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--sheet); overflow: hidden; }
+.facts div { padding: 12px 16px; border-right: 1px solid var(--line); }
+.facts div:last-child { border-right: 0; }
+.facts dt { font-size: 0.76rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+.rules { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; max-width: 60ch; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-weight: 700; }
+.field input, textarea { background: var(--sheet); border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
+.field input { max-width: 340px; }
+
+/* Running test */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); padding-block: 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-top: -12px; }
+.bar-title { font-family: var(--font-display); font-weight: 700; min-width: 0; }
+.bar-sub { color: var(--muted); font-size: 0.86rem; }
+.timer { font-family: var(--font-data); font-weight: 600; font-size: 1.35rem; font-variant-numeric: tabular-nums; padding: 4px 12px; border-radius: 10px; background: var(--sheet); border: 1.5px solid var(--line); }
+.timer.warn { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+.timer.bad { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.exam { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 20px; }
+@media (min-width: 860px) { .exam { grid-template-columns: minmax(0, 1fr) 270px; align-items: start; } }
+.qcard { background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.qnum { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.qtext { font-size: 1.14rem; line-height: 1.45; white-space: pre-line; max-width: 64ch; }
+.opts { display: flex; flex-direction: column; gap: 10px; }
+.opt { display: flex; gap: 14px; align-items: flex-start; text-align: left; width: 100%; background: var(--sheet); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; cursor: pointer; }
+.opt:hover { border-color: var(--accent); }
+.opt .bubble { flex: none; width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-family: var(--font-data); font-weight: 600; font-size: 0.9rem; }
+.opt .otext { min-width: 0; padding-top: 3px; }
+.opt[aria-checked="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.opt[aria-checked="true"] .bubble { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.qnav { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+.qnav .grp { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn.review[aria-pressed="true"] { background: var(--review-soft); border-color: var(--review); color: var(--review); }
+.palette { background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.palette h2 { font-size: 1rem; }
+.pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 8px; }
+.pbtn { height: 40px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--paper); cursor: pointer; font-family: var(--font-data); font-weight: 600; font-size: 0.9rem; position: relative; }
+.pbtn.done { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.pbtn.flag { border-color: var(--review); box-shadow: inset 0 0 0 2px var(--review); }
+.pbtn.flag::after { content: ""; position: absolute; top: -5px; right: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--review); border: 2px solid var(--sheet); }
+.pbtn.cur { outline: 3px solid var(--ink); outline-offset: 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.82rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid var(--line); background: var(--paper); }
+.legend i.done { background: var(--accent); border-color: var(--accent); }
+.legend i.flag { border-color: var(--review); box-shadow: inset 0 0 0 2px var(--review); }
+
+/* Confirm overlay */
+.overlay { position: fixed; inset: 0; background: rgba(8, 18, 20, 0.6); display: grid; place-items: center; padding: 16px; z-index: 20; }
+.dialog { background: var(--sheet); color: var(--ink); border-radius: 16px; padding: 24px; max-width: 420px; width: 100%; display: flex; flex-direction: column; gap: 14px; border: 1px solid var(--line); }
+.dialog ul { margin: 0; padding-left: 20px; }
+.dialog .row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+
+/* Result */
+.scorehead { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: flex-end; }
+.bigscore { font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 12vw, 4.6rem); line-height: 0.95; letter-spacing: -0.02em; }
+.bigscore small { font-size: 0.42em; color: var(--muted); font-weight: 500; }
+.tally { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); }
+.tally b { color: var(--ink); font-family: var(--font-data); }
+.send { background: var(--accent-soft); border: 1.5px solid var(--accent); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.send .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.send textarea { font-family: var(--font-data); font-size: 0.82rem; min-height: 176px; resize: vertical; word-break: break-all; }
+.secs { display: flex; flex-direction: column; gap: 10px; }
+.sec { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; }
+.sec .track { grid-column: 1 / -1; height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.sec .fill { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+.sec .num { font-family: var(--font-data); font-size: 0.9rem; color: var(--muted); }
+.revlist { display: flex; flex-direction: column; gap: 14px; }
+.rq { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.rq .qtext { font-size: 1.02rem; }
+.rq ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.rq li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 10px; border-radius: 8px; border: 1px solid transparent; }
+.rq li .lt { font-family: var(--font-data); font-weight: 600; flex: none; }
+.rq li .tx { min-width: 0; flex: 1; }
+.rq li.right { background: var(--good-soft); border-color: var(--good); }
+.rq li.wrongpick { background: var(--bad-soft); border-color: var(--bad); }
+.rq .why { color: var(--muted); border-top: 1px dashed var(--line); padding-top: 10px; max-width: 68ch; }
+
+/* Teacher */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--sheet); overflow: hidden; }
+.stat { padding: 14px 18px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat .k { font-size: 0.76rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.stat .v { font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat .s { color: var(--muted); font-size: 0.86rem; }
+.chart { margin: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.chart figcaption { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .axis { fill: var(--muted); font-family: var(--font-data); font-size: 12px; }
+.chart .val { fill: var(--ink); font-family: var(--font-data); font-size: 12px; font-weight: 600; }
+.chart .ln { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart .area { fill: var(--accent-soft); stroke: none; }
+.chart .dot { fill: var(--sheet); stroke: var(--accent); stroke-width: 2.5; }
+.chart .dot.last { fill: var(--accent); }
+.add { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.add textarea { min-height: 96px; font-family: var(--font-data); font-size: 0.85rem; resize: vertical; }
+.add .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.table-wrap { overflow-x: auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 0.76rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .acts { display: flex; flex-wrap: wrap; gap: 6px; }
+td .pills { display: flex; flex-wrap: wrap; gap: 4px; }
+.detail td { background: var(--paper); }
+.dlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.dlist li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; }
+.dlist .mk { font-family: var(--font-data); font-weight: 600; }
+.dlist .mk.ok { color: var(--good); }
+.dlist .mk.no { color: var(--bad); }
+.dlist .sub { color: var(--muted); font-size: 0.92rem; }
+.topic { display: flex; flex-direction: column; gap: 12px; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.empty { background: var(--sheet); border: 1.5px dashed var(--line); border-radius: 14px; padding: 26px 20px; color: var(--muted); }
+.empty b { color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) { .btn, .opt, .pbtn { transition: border-color 0.12s, background-color 0.12s; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="omr" aria-hidden="true"><i></i><i class="on"></i><i></i><i></i></div>
+      <div>
+        <div class="brand-name">Chapter Tests</div>
+        <div class="brand-sub">Class 10 · NCERT Science</div>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Views" hidden>
+      <button type="button" id="tab-teacher" data-act="tab" data-tab="teacher">Results</button>
+      <button type="button" id="tab-home" data-act="tab" data-tab="home">Tests</button>
+    </nav>
+  </header>
+  <main id="app"></main>
+</div>
+<div id="overlay" class="overlay" hidden></div>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'q7Lm2xVt9RzP4sWd', SALT = 'desk-7f3a-ncert', BLOB = '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';
+
+  function decodeBlob(b64) {
+    var bin = atob(b64), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i) ^ KEY.charCodeAt(i % KEY.length);
+    return JSON.parse(new TextDecoder('utf-8').decode(bytes));
+  }
+  var TESTS = decodeBlob(BLOB);
+  var app = document.getElementById('app');
+  var overlay = document.getElementById('overlay');
+  var tabs = document.getElementById('tabs');
+  var LETTERS = ['A', 'B', 'C', 'D'];
+
+  var state = {
+    view: 'home', testId: null, run: null, result: null,
+    teacher: false, db: null, attempts: null, dbError: null,
+    importText: '', importMsg: null, openAttempt: null, confirmDelete: null,
+    startErr: '', saveMsg: null, copyMsg: ''
+  };
+  var timerId = null, hiddenAt = 0;
+
+  /* ---------- small helpers ---------- */
+  function lsGet(k) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function lsDel(k) { try { localStorage.removeItem(k); } catch (e) {} }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function fmtClock(sec) { sec = Math.max(0, Math.round(sec)); return pad(Math.floor(sec / 60)) + ':' + pad(sec % 60); }
+  function fmtDur(sec) { sec = Math.max(0, Math.round(sec)); return Math.floor(sec / 60) + ' min ' + pad(sec % 60) + ' s'; }
+  function fmtDate(iso, short) {
+    var d = new Date(iso); if (isNaN(d)) return '';
+    try {
+      return short ? d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
+        : d.toLocaleString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+    } catch (e) { return d.toDateString(); }
+  }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function testById(id) { for (var i = 0; i < TESTS.length; i++) if (TESTS[i].id === id) return TESTS[i]; return null; }
+  function qById(test, id) { for (var i = 0; i < test.questions.length; i++) if (test.questions[i].id === id) return test.questions[i]; return null; }
+
+  /* ---------- scoring and result codes ---------- */
+  function scoreAnswers(test, ans) {
+    var correct = 0, wrong = 0, skipped = 0, secs = {}, per = [];
+    test.sections.forEach(function (s) { secs[s] = { name: s, c: 0, t: 0 }; });
+    test.questions.forEach(function (q, i) {
+      var ch = ans.charAt(i), chosen = (ch === '' || ch === '-') ? null : Number(ch), ok = chosen === q.ans;
+      secs[q.sec].t++;
+      if (chosen === null) skipped++; else if (ok) { correct++; secs[q.sec].c++; } else wrong++;
+      per.push({ q: q, chosen: chosen, ok: ok });
+    });
+    var total = test.questions.length * test.marks;
+    var score = correct * test.marks - wrong * test.negative;
+    var pct = total ? Math.max(0, Math.round(score / total * 100)) : 0;
+    return { correct: correct, wrong: wrong, skipped: skipped, score: score, total: total, pct: pct,
+      sections: test.sections.map(function (s) { return secs[s]; }), per: per };
+  }
+  function toHex(str) { var b = new TextEncoder().encode(str), h = ''; for (var i = 0; i < b.length; i++) h += (b[i] < 16 ? '0' : '') + b[i].toString(16); return h; }
+  function fromHex(h) { var b = new Uint8Array(h.length / 2); for (var i = 0; i < b.length; i++) b[i] = parseInt(h.substr(i * 2, 2), 16); return new TextDecoder('utf-8').decode(b); }
+  function fnv(str) { var h = 0x811c9dc5; for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }
+  function makeCode(a) {
+    var hex = toHex([1, a.t, a.s.toString(36), a.d.toString(36), a.x, a.l, a.a, a.n].join('|'));
+    return 'CT1-' + hex + '-' + fnv(hex + SALT);
+  }
+  function readCode(text) {
+    var m = /CT1-([0-9a-fA-F]+)-([0-9a-z]+)/.exec(String(text || ''));
+    if (!m) return { error: 'No result code found. Paste the whole message he sent you.' };
+    var hex = m[1].toLowerCase();
+    if (hex.length % 2 || fnv(hex + SALT) !== m[2]) return { error: 'This result code is incomplete or was changed. Ask for the message again.' };
+    var p; try { p = fromHex(hex).split('|'); } catch (e) { return { error: 'This result code could not be read.' }; }
+    if (p.length < 8 || p[0] !== '1') return { error: 'This result code could not be read.' };
+    var att = { t: p[1], s: parseInt(p[2], 36), d: parseInt(p[3], 36), x: Number(p[4]) ? 1 : 0, l: Number(p[5]) || 0, a: p[6], n: p.slice(7).join('|') };
+    var test = testById(att.t);
+    if (!test) return { error: 'This result is for a test that is not on this page.' };
+    if (att.a.length !== test.questions.length || !/^[0-3-]+$/.test(att.a) || !isFinite(att.s) || !isFinite(att.d)) return { error: 'This result code does not match the test.' };
+    return { att: att };
+  }
+  function attemptId(att) { return att.t + '_' + att.s.toString(36); }
+  function attemptDoc(att, source) {
+    var test = testById(att.t), sc = scoreAnswers(test, att.a);
+    return {
+      testId: test.id, testTitle: test.title, chapter: test.chapter, student: att.n,
+      startedAt: new Date(att.s).toISOString(), submittedAt: new Date(att.s + att.d * 1000).toISOString(),
+      durationSec: att.d, limitSec: test.minutes * 60, auto: !!att.x, leftTab: att.l, answers: att.a,
+      score: sc.score, total: sc.total, correct: sc.correct, wrong: sc.wrong, skipped: sc.skipped, pct: sc.pct,
+      sections: sc.sections, source: source
+    };
+  }
+  function resultMessage(test, att, sc, code) {
+    return 'Chapter test result\n' + test.title + ' (' + test.cls + ' ' + test.subject + ')\n' +
+      'Name: ' + att.n + '\nScore: ' + sc.score + '/' + sc.total + ' (' + sc.pct + '%)\n' +
+      'Time: ' + fmtDur(att.d) + ' of ' + test.minutes + ' min' + (att.x ? ' (time ran out)' : '') + '\n' +
+      'Result code: ' + code;
+  }
+
+  /* ---------- navigation ---------- */
+  function go(view, id) {
+    state.view = view;
+    if (id !== undefined) state.testId = id;
+    state.startErr = ''; state.copyMsg = '';
+    render();
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+  function render() {
+    tabs.hidden = !state.teacher || state.view === 'test';
+    document.getElementById('tab-teacher').setAttribute('aria-current', state.view === 'teacher' ? 'page' : 'false');
+    document.getElementById('tab-home').setAttribute('aria-current', state.view !== 'teacher' ? 'page' : 'false');
+    if (state.view === 'start') app.innerHTML = viewStart();
+    else if (state.view === 'test') { app.innerHTML = viewTest(); tick(); }
+    else if (state.view === 'result') app.innerHTML = viewResult();
+    else if (state.view === 'teacher') app.innerHTML = viewTeacher();
+    else app.innerHTML = viewHome();
+  }
+
+  /* ---------- student: home and start ---------- */
+  function testMeta(t) { return t.questions.length + ' questions · ' + t.minutes + ' minutes · ' + t.marks + ' mark each'; }
+  function viewHome() {
+    var rows = TESTS.map(function (t) {
+      return '<li class="test-row"><div class="test-main"><div class="eyebrow">' + esc(t.chapter) + '</div><h2>' + esc(t.title) + '</h2>' +
+        '<div class="meta">' + esc(testMeta(t)) + '</div></div>' +
+        '<button type="button" class="btn primary" data-act="open" data-id="' + esc(t.id) + '">Open test</button>' +
+        (state.teacher ? '<div class="linkhint">To open this chapter directly, add <code>#' + esc(t.id) + '</code> to the end of the page link.' +
+          ' <button type="button" class="btn small" data-act="copy" data-text="#' + esc(t.id) + '">Copy ending</button></div>' : '') +
+        '</li>';
+    }).join('');
+    var mine = lsGet('ct.mine') || [], mineHtml = '';
+    if (mine.length) {
+      mineHtml = '<h2>Your results on this device</h2><ul class="mine">' + mine.slice().reverse().map(function (m, i) {
+        return '<li><span><b>' + esc(m.title) + '</b><br><span class="meta">' + esc(fmtDate(m.at)) + '</span></span>' +
+          '<span class="score">' + esc(m.score) + '/' + esc(m.total) + ' · ' + esc(m.pct) + '%</span>' +
+          '<button type="button" class="btn small" data-act="copy" data-text="' + esc(m.msg) + '">Copy result message</button></li>';
+      }).join('') + '</ul>';
+    }
+    return '<section class="page"><div><h1>Chapter tests</h1></div>' +
+      '<p class="lede">Each test is timed and covers one chapter of the NCERT textbook. Open a chapter, enter your name and start when you are ready.</p>' +
+      '<ul class="tests">' + rows + '</ul>' + (state.copyMsg ? '<p class="msg ok" role="status">' + esc(state.copyMsg) + '</p>' : '') + mineHtml + '</section>';
+  }
+  function viewStart() {
+    var t = testById(state.testId); if (!t) return viewHome();
+    var name = lsGet('ct.name') || '';
+    return '<section class="page narrow">' +
+      '<button type="button" class="link" data-act="home">← All tests</button>' +
+      '<div><div class="eyebrow">' + esc(t.cls + ' ' + t.subject + ' · ' + t.chapter) + '</div><h1>' + esc(t.title) + '</h1></div>' +
+      '<dl class="facts"><div><dt>Questions</dt><dd>' + t.questions.length + '</dd></div><div><dt>Time</dt><dd>' + t.minutes + ' min</dd></div>' +
+      '<div><dt>Marking</dt><dd>+' + t.marks + ' each' + (t.negative ? ', −' + t.negative + ' wrong' : ', no negative') + '</dd></div></dl>' +
+      '<ul class="rules"><li>The timer starts when you press Start and cannot be paused.</li>' +
+      '<li>The test submits itself when the time runs out.</li>' +
+      '<li>You can move between questions and change your answers until you submit.</li>' +
+      '<li>After you submit, send the result message so that your score is recorded.</li></ul>' +
+      '<div class="field"><label for="student-name">Your name</label>' +
+      '<input id="student-name" type="text" maxlength="30" autocomplete="given-name" value="' + esc(name) + '"></div>' +
+      (state.startErr ? '<p class="msg err" role="alert">' + esc(state.startErr) + '</p>' : '') +
+      '<div><button type="button" class="btn primary big" data-act="start">Start test</button></div>' +
+      '<p class="meta">Questions are based on ' + esc(t.book) + ', ' + esc(t.chapter) + '.</p></section>';
+  }
+  function startTest() {
+    var t = testById(state.testId), el = document.getElementById('student-name');
+    var name = (el ? el.value : '').replace(/\s+/g, ' ').trim();
+    if (!name) { state.startErr = 'Enter your name to start.'; render(); var e2 = document.getElementById('student-name'); if (e2) e2.focus(); return; }
+    lsSet('ct.name', name);
+    var optOrder = {};
+    t.questions.forEach(function (q) { optOrder[q.id] = q.fixed ? [0, 1, 2, 3] : shuffle([0, 1, 2, 3]); });
+    state.run = { testId: t.id, name: name, startedAt: Date.now(), order: shuffle(t.questions.map(function (q) { return q.id; })),
+      optOrder: optOrder, answers: {}, marked: {}, cur: 0, leaves: 0 };
+    saveRun();
+    startTimer();
+    go('test');
+  }
+  function saveRun() { if (state.run) lsSet('ct.run', state.run); }
+
+  /* ---------- student: running test ---------- */
+  function remaining() { var t = testById(state.run.testId); return t.minutes * 60 - (Date.now() - state.run.startedAt) / 1000; }
+  function startTimer() { stopTimer(); timerId = setInterval(tick, 250); }
+  function stopTimer() { if (timerId) { clearInterval(timerId); timerId = null; } }
+  function tick() {
+    if (!state.run || state.view !== 'test') return;
+    var left = remaining();
+    if (left <= 0) { finish(true); return; }
+    var el = document.getElementById('timer');
+    if (el) {
+      var txt = fmtClock(Math.ceil(left));
+      if (el.textContent !== txt) el.textContent = txt;
+      el.className = 'timer' + (left <= 60 ? ' bad' : left <= 300 ? ' warn' : '');
+    }
+  }
+  function answeredCount() { var n = 0; for (var k in state.run.answers) if (state.run.answers[k] != null) n++; return n; }
+  function viewTest() {
+    var r = state.run, t = testById(r.testId), qid = r.order[r.cur], q = qById(t, qid), n = r.order.length;
+    var opts = r.optOrder[qid].map(function (orig, i) {
+      var on = r.answers[qid] === orig;
+      return '<button type="button" class="opt" role="radio" aria-checked="' + on + '" data-act="pick" data-o="' + orig + '">' +
+        '<span class="bubble">' + LETTERS[i] + '</span><span class="otext">' + esc(q.opts[orig]) + '</span></button>';
+    }).join('');
+    var pal = r.order.map(function (id, i) {
+      var cls = 'pbtn' + (r.answers[id] != null ? ' done' : '') + (r.marked[id] ? ' flag' : '') + (i === r.cur ? ' cur' : '');
+      var lab = 'Question ' + (i + 1) + (r.answers[id] != null ? ', answered' : ', not answered') + (r.marked[id] ? ', marked for review' : '');
+      return '<button type="button" class="' + cls + '" data-act="jump" data-i="' + i + '" aria-label="' + lab + '">' + (i + 1) + '</button>';
+    }).join('');
+    return '<div class="bar"><div><div class="bar-title">' + esc(t.title) + '</div>' +
+      '<div class="bar-sub">' + answeredCount() + ' of ' + n + ' answered</div></div>' +
+      '<div class="timer" id="timer" role="timer" aria-label="Time left">' + fmtClock(Math.ceil(remaining())) + '</div></div>' +
+      '<div class="exam"><section class="qcard" aria-label="Question">' +
+      '<div class="qnum">Question ' + (r.cur + 1) + ' of ' + n + (r.marked[qid] ? ' <span class="pill" style="background:var(--review-soft);color:var(--review)">Marked for review</span>' : '') + '</div>' +
+      '<p class="qtext">' + esc(q.q) + '</p>' +
+      '<div class="opts" role="radiogroup" aria-label="Answer choices">' + opts + '</div>' +
+      '<div class="qnav"><div class="grp">' +
+      '<button type="button" class="btn" data-act="prev"' + (r.cur === 0 ? ' disabled' : '') + '>← Previous</button>' +
+      '<button type="button" class="btn review" data-act="mark" aria-pressed="' + !!r.marked[qid] + '">' + (r.marked[qid] ? 'Unmark' : 'Mark for review') + '</button>' +
+      '<button type="button" class="btn" data-act="clear"' + (r.answers[qid] == null ? ' disabled' : '') + '>Clear answer</button></div>' +
+      (r.cur < n - 1 ? '<button type="button" class="btn primary" data-act="next">Next →</button>'
+        : '<button type="button" class="btn primary" data-act="ask-submit">Submit test</button>') +
+      '</div></section>' +
+      '<aside class="palette" aria-label="Question palette"><h2>Questions</h2><div class="pgrid">' + pal + '</div>' +
+      '<div class="legend"><span><i class="done"></i>Answered</span><span><i></i>Not answered</span><span><i class="flag"></i>Marked for review</span></div>' +
+      '<button type="button" class="btn" data-act="ask-submit">Submit test</button></aside></div>';
+  }
+  function askSubmit() {
+    var r = state.run, n = r.order.length, a = answeredCount(), m = 0;
+    for (var k in r.marked) if (r.marked[k]) m++;
+    overlay.innerHTML = '<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-h"><h2 id="dlg-h">Submit the test?</h2>' +
+      '<ul><li>' + a + ' of ' + n + ' answered</li>' + (n - a ? '<li>' + (n - a) + ' not answered</li>' : '') +
+      (m ? '<li>' + m + ' marked for review</li>' : '') + '<li>Time left: ' + fmtClock(Math.ceil(remaining())) + '</li></ul>' +
+      '<p class="meta">You cannot change your answers after you submit.</p>' +
+      '<div class="row"><button type="button" class="btn" data-act="cancel-submit">Go back</button>' +
+      '<button type="button" class="btn primary" id="dlg-ok" data-act="do-submit">Submit test</button></div></div>';
+    overlay.hidden = false;
+    var b = document.getElementById('dlg-ok'); if (b) b.focus();
+  }
+  function closeOverlay() { overlay.hidden = true; overlay.innerHTML = ''; }
+  function finish(auto) {
+    var r = state.run; if (!r) return;
+    stopTimer(); closeOverlay();
+    var t = testById(r.testId), limit = t.minutes * 60;
+    var dur = auto ? limit : Math.min(limit, Math.max(1, Math.round((Date.now() - r.startedAt) / 1000)));
+    var ans = t.questions.map(function (q) { return r.answers[q.id] == null ? '-' : String(r.answers[q.id]); }).join('');
+    var att = { t: t.id, n: r.name, s: r.startedAt, d: dur, x: auto ? 1 : 0, l: r.leaves || 0, a: ans };
+    showResult(att);
+    var res = state.result, mine = lsGet('ct.mine') || [];
+    mine.push({ title: t.title, at: new Date(att.s + att.d * 1000).toISOString(), score: res.sc.score, total: res.sc.total, pct: res.sc.pct, msg: res.msg });
+    lsSet('ct.mine', mine.slice(-30));
+    lsDel('ct.run'); state.run = null;
+    go('result');
+  }
+  function showResult(att) {
+    var t = testById(att.t), sc = scoreAnswers(t, att.a), code = makeCode(att);
+    state.result = { att: att, test: t, sc: sc, code: code, msg: resultMessage(t, att, sc, code) };
+    state.saveMsg = null;
+  }
+
+  /* ---------- student: result ---------- */
+  function secBars(sections) {
+    return '<div class="secs">' + sections.map(function (s) {
+      var p = s.t ? Math.round(s.c / s.t * 100) : 0;
+      return '<div class="sec"><span>' + esc(s.name) + '</span><span class="num">' + s.c + '/' + s.t + '</span>' +
+        '<span class="track"><span class="fill" style="width:' + p + '%"></span></span></div>';
+    }).join('') + '</div>';
+  }
+  function viewResult() {
+    var R = state.result; if (!R) return viewHome();
+    var sc = R.sc, att = R.att, t = R.test;
+    var review = sc.per.map(function (p, i) {
+      var items = p.q.opts.map(function (o, k) {
+        var right = k === p.q.ans, picked = k === p.chosen;
+        var tag = right ? (picked ? 'Correct answer · your answer' : 'Correct answer') : (picked ? 'Your answer' : '');
+        return '<li class="' + (right ? 'right' : picked ? 'wrongpick' : '') + '"><span class="lt">' + (right ? '✓' : picked ? '✗' : '·') + '</span>' +
+          '<span class="tx">' + esc(o) + (tag ? ' <span class="pill ' + (right ? 'good' : 'bad') + '">' + tag + '</span>' : '') + '</span></li>';
+      }).join('');
+      var status = p.chosen === null ? '<span class="pill warn">Not answered</span>' : p.ok ? '<span class="pill good">Correct</span>' : '<span class="pill bad">Wrong</span>';
+      return '<div class="rq"><div class="qnum">Question ' + (i + 1) + ' · ' + esc(p.q.sec) + ' ' + status + '</div>' +
+        '<p class="qtext">' + esc(p.q.q) + '</p><ol>' + items + '</ol><p class="why">' + esc(p.q.exp) + '</p></div>';
+    }).join('');
+    var wa = 'https://wa.me/?text=' + encodeURIComponent(R.msg);
+    var save = '';
+    if (state.teacher && state.db) {
+      save = '<div class="row"><button type="button" class="btn" data-act="save-here">Save to score history</button>' +
+        (state.saveMsg ? '<span class="msg ' + state.saveMsg.cls + '" role="status">' + esc(state.saveMsg.text) + '</span>' : '') + '</div>';
+    }
+    return '<section class="page">' +
+      '<div><div class="eyebrow">' + esc(t.chapter + ' · ' + t.title) + '</div><h1>' + (att.x ? 'Time ran out. Your test was submitted.' : 'Test submitted') + '</h1></div>' +
+      '<div class="scorehead"><div class="bigscore">' + sc.score + '<small>/' + sc.total + '</small></div>' +
+      '<div><div style="font-family:var(--font-display);font-weight:700;font-size:1.5rem">' + sc.pct + '%</div>' +
+      '<div class="tally"><span><b>' + sc.correct + '</b> correct</span><span><b>' + sc.wrong + '</b> wrong</span><span><b>' + sc.skipped + '</b> not answered</span><span><b>' + esc(fmtDur(att.d)) + '</b> taken</span></div></div></div>' +
+      '<div class="send"><h2>Send your result</h2>' +
+      '<p>Your score is recorded only when you send this message to the person who set the test.</p>' +
+      '<div class="row"><a class="btn primary" href="' + esc(wa) + '" target="_blank" rel="noopener">Send on WhatsApp</a>' +
+      '<button type="button" class="btn" data-act="copy-result">Copy message</button>' +
+      (state.copyMsg ? '<span class="msg ok" role="status">' + esc(state.copyMsg) + '</span>' : '') + '</div>' +
+      '<textarea id="result-msg" readonly aria-label="Result message">' + esc(R.msg) + '</textarea>' + save + '</div>' +
+      '<div><h2 style="margin-bottom:12px">By topic</h2>' + secBars(sc.sections) + '</div>' +
+      '<div><h2 style="margin-bottom:12px">Review your answers</h2><div class="revlist">' + review + '</div></div>' +
+      '<div><button type="button" class="btn" data-act="home">Back to all tests</button></div></section>';
+  }
+  function copyText(text, done) {
+    function fallback() { var ta = document.getElementById('result-msg'); if (ta) { ta.focus(); ta.select(); } done('Select the text and copy it.'); }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done('Copied.'); }, fallback);
+      else fallback();
+    } catch (e) { fallback(); }
+  }
+
+  /* ---------- teacher ---------- */
+  function sortedAttempts() {
+    return (state.attempts || []).slice().sort(function (a, b) { return String(a.submittedAt).localeCompare(String(b.submittedAt)); });
+  }
+  function chartSvg(list) {
+    var W = Math.max(280, Math.min(960, (app.clientWidth || 640) - 34)), H = 240, L = 44, Rm = 20, T = 24, B = 40, n = list.length, iw = W - L - Rm, ih = H - T - B;
+    function x(i) { return n === 1 ? L + iw / 2 : L + iw * i / (n - 1); }
+    function y(p) { return T + ih * (1 - p / 100); }
+    var g = [0, 25, 50, 75, 100].map(function (v) {
+      return '<line class="grid" x1="' + L + '" x2="' + (W - Rm) + '" y1="' + y(v) + '" y2="' + y(v) + '"></line>' +
+        '<text class="axis" x="' + (L - 8) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + v + '%</text>';
+    }).join('');
+    var pts = list.map(function (a, i) { return x(i).toFixed(1) + ',' + y(a.pct).toFixed(1); });
+    var area = n > 1 ? '<polygon class="area" points="' + L + ',' + y(0) + ' ' + pts.join(' ') + ' ' + (W - Rm) + ',' + y(0) + '"></polygon>' : '';
+    var line = n > 1 ? '<polyline class="ln" points="' + pts.join(' ') + '"></polyline>' : '';
+    var step = Math.max(1, Math.ceil(n / 8));
+    var marks = list.map(function (a, i) {
+      var showLab = n <= 12 || i === n - 1, showX = i % step === 0 || i === n - 1;
+      var anchor = n > 1 && i === n - 1 ? 'end' : n > 1 && i === 0 ? 'start' : 'middle';
+      return '<circle class="dot' + (i === n - 1 ? ' last' : '') + '" cx="' + x(i).toFixed(1) + '" cy="' + y(a.pct).toFixed(1) + '" r="5"><title>' +
+        esc(a.testTitle + ': ' + a.score + '/' + a.total + ' on ' + fmtDate(a.submittedAt)) + '</title></circle>' +
+        (showLab ? '<text class="val" x="' + x(i).toFixed(1) + '" y="' + (y(a.pct) - 11).toFixed(1) + '" text-anchor="' + anchor + '">' + a.pct + '%</text>' : '') +
+        (showX ? '<text class="axis" x="' + x(i).toFixed(1) + '" y="' + (H - 14) + '" text-anchor="' + anchor + '">' + esc(fmtDate(a.submittedAt, true)) + '</text>' : '');
+    }).join('');
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Score in each attempt, oldest to newest">' + g + area + line + marks + '</svg>';
+  }
+  function viewTeacher() {
+    var list = sortedAttempts(), n = list.length, body;
+    var addBox = '<section class="add"><h2>Add a result</h2>' +
+      '<p class="meta">Paste the result message he sent you. The score is worked out again from his answers, so the numbers in the message do not need to be trusted.</p>' +
+      '<textarea id="import-text" aria-label="Result message" placeholder="Chapter test result … Result code: CT1-…">' + esc(state.importText) + '</textarea>' +
+      '<div class="row"><button type="button" class="btn primary" data-act="import"' + (state.db ? '' : ' disabled') + '>Add result</button>' +
+      (state.importMsg ? '<span class="msg ' + state.importMsg.cls + '" role="status">' + esc(state.importMsg.text) + '</span>' : '') + '</div></section>';
+    if (!state.db) {
+      body = '<p class="note">The score history could not be opened in this view. Open this page while signed in as its owner, then reload.</p>';
+    } else if (state.attempts === null) {
+      body = '<p class="note">Loading the score history…</p>' + addBox;
+    } else if (!n) {
+      body = '<div class="empty"><p><b>No results yet.</b> Share this page with a public link. When a test is submitted, the page shows a result message to send to you. Paste that message below and the attempt appears here with its score, time and topic-wise accuracy.</p></div>' + addBox;
+    } else {
+      var last = list[n - 1], sum = 0, best = list[0];
+      list.forEach(function (a) { sum += a.pct; if (a.pct > best.pct) best = a; });
+      var counts = {}, rows = '';
+      var numbered = list.map(function (a) { var k = a.testId + '|' + String(a.student).toLowerCase(); counts[k] = (counts[k] || 0) + 1; return { a: a, no: counts[k] }; });
+      numbered.slice().reverse().forEach(function (it) {
+        var a = it.a, pills = '';
+        if (it.no > 1) pills += '<span class="pill">Attempt ' + it.no + '</span>';
+        if (a.auto) pills += '<span class="pill warn">Time ran out</span>';
+        if (a.leftTab) pills += '<span class="pill warn">Left the test screen ' + a.leftTab + '×</span>';
+        if (a.source === 'this-device') pills += '<span class="pill">Taken on your device</span>';
+        var del = state.confirmDelete === a._id
+          ? '<button type="button" class="btn small danger" data-act="del-yes" data-id="' + esc(a._id) + '">Delete for good</button><button type="button" class="btn small" data-act="del-no">Keep</button>'
+          : '<button type="button" class="btn small danger" data-act="del-ask" data-id="' + esc(a._id) + '">Delete</button>';
+        rows += '<tr><td>' + esc(fmtDate(a.submittedAt)) + '</td><td><b>' + esc(a.testTitle) + '</b><br><span class="meta">' + esc(a.chapter || '') + '</span></td>' +
+          '<td>' + esc(a.student) + '</td><td class="num"><b>' + esc(a.score) + '/' + esc(a.total) + '</b> · ' + esc(a.pct) + '%</td>' +
+          '<td class="num">' + esc(fmtDur(a.durationSec)) + '</td><td><div class="pills">' + pills + '</div></td>' +
+          '<td><div class="acts"><button type="button" class="btn small" data-act="detail" data-id="' + esc(a._id) + '" aria-expanded="' + (state.openAttempt === a._id) + '">' +
+          (state.openAttempt === a._id ? 'Hide answers' : 'Answers') + '</button>' + del + '</div></td></tr>';
+        if (state.openAttempt === a._id) rows += '<tr class="detail"><td colspan="7">' + attemptDetail(a) + '</td></tr>';
+      });
+      var topics = topicBlocks(list);
+      body = '<div class="stats">' +
+        '<div class="stat"><div class="k">Latest</div><div class="v">' + last.pct + '%</div><div class="s">' + esc(last.testTitle) + '</div></div>' +
+        '<div class="stat"><div class="k">Average</div><div class="v">' + Math.round(sum / n) + '%</div><div class="s">across ' + n + (n === 1 ? ' attempt' : ' attempts') + '</div></div>' +
+        '<div class="stat"><div class="k">Best</div><div class="v">' + best.pct + '%</div><div class="s">' + esc(best.testTitle) + '</div></div></div>' +
+        '<figure class="chart">' + chartSvg(list) + '<figcaption>Score in each attempt, oldest to newest.</figcaption></figure>' +
+        addBox +
+        '<div><h2 style="margin-bottom:12px">All attempts</h2><div class="table-wrap"><table><thead><tr><th>Submitted</th><th>Chapter</th><th>Name</th><th>Score</th><th>Time taken</th><th>Notes</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></div></div>' +
+        '<div><h2 style="margin-bottom:12px">Accuracy by topic</h2>' + topics + '</div>';
+    }
+    return '<section class="page"><div><h1>Results</h1></div>' +
+      '<p class="lede">Every attempt you add is kept here, so you can follow his scores from chapter to chapter.</p>' +
+      (state.dbError ? '<p class="msg err" role="alert">The score history stopped updating. Reload the page.</p>' : '') + body + '</section>';
+  }
+  function attemptDetail(a) {
+    var t = testById(a.testId);
+    if (!t || String(a.answers).length !== t.questions.length) return '<p class="meta">The questions for this attempt are no longer on this page.</p>';
+    var sc = scoreAnswers(t, a.answers);
+    return '<ol class="dlist">' + sc.per.map(function (p, i) {
+      var mk = p.chosen === null ? '<span class="mk">–</span>' : p.ok ? '<span class="mk ok">✓</span>' : '<span class="mk no">✗</span>';
+      var sub = p.chosen === null ? 'Not answered. Correct: ' + p.q.opts[p.q.ans]
+        : p.ok ? 'Answered: ' + p.q.opts[p.chosen]
+        : 'Answered: ' + p.q.opts[p.chosen] + '. Correct: ' + p.q.opts[p.q.ans];
+      return '<li>' + mk + '<div><div>' + (i + 1) + '. ' + esc(p.q.q) + ' <span class="pill">' + esc(p.q.sec) + '</span></div><div class="sub">' + esc(sub) + '</div></div></li>';
+    }).join('') + '</ol>';
+  }
+  function topicBlocks(list) {
+    var by = {}, order = [];
+    list.forEach(function (a) {
+      if (!by[a.testId]) { by[a.testId] = { title: a.testTitle, n: 0, secs: {}, names: [] }; order.push(a.testId); }
+      var b = by[a.testId]; b.n++;
+      (a.sections || []).forEach(function (s) {
+        if (!b.secs[s.name]) { b.secs[s.name] = { name: s.name, c: 0, t: 0 }; b.names.push(s.name); }
+        b.secs[s.name].c += s.c; b.secs[s.name].t += s.t;
+      });
+    });
+    return order.map(function (id) {
+      var b = by[id];
+      return '<div class="topic"><div><b>' + esc(b.title) + '</b> <span class="meta">· ' + b.n + (b.n === 1 ? ' attempt' : ' attempts, added together') + '</span></div>' +
+        secBars(b.names.map(function (nm) { return b.secs[nm]; })) + '</div>';
+    }).join('');
+  }
+  function doImport() {
+    var el = document.getElementById('import-text'); if (el) state.importText = el.value;
+    var r = readCode(state.importText);
+    if (r.error) { state.importMsg = { cls: 'err', text: r.error }; render(); return; }
+    saveAttempt(r.att, 'message', function (ok, dup) {
+      if (ok) { state.importText = ''; state.importMsg = { cls: 'ok', text: dup ? 'This result was already in the history.' : 'Result added.' }; }
+      else state.importMsg = { cls: 'err', text: 'The result could not be saved. Try again.' };
+      render();
+    });
+  }
+  function saveAttempt(att, source, cb) {
+    if (!state.db) { cb(false); return; }
+    var id = attemptId(att), dup = (state.attempts || []).some(function (a) { return a._id === id; });
+    if (dup) { cb(true, true); return; }
+    state.db.collection('attempts').doc(id).set(attemptDoc(att, source)).then(function () { cb(true, false); }, function () { cb(false); });
+  }
+  function subscribe() {
+    try {
+      state.db.collection('attempts').onSnapshot(function (snap) {
+        state.attempts = snap.docs.map(function (d) { var o = Object.assign({}, d.data()); o._id = d.id; return o; });
+        if (state.view === 'teacher') { var el = document.getElementById('import-text'); if (el) state.importText = el.value; render(); }
+      }, function (e) { state.dbError = (e && e.code) || 'unavailable'; if (state.view === 'teacher') render(); });
+    } catch (e) { state.dbError = 'unavailable'; }
+  }
+  function initTeacher() {
+    if (!window.claude || typeof window.claude.use !== 'function') return;
+    window.claude.use('user').then(function (u) {
+      if (!u) return false;
+      return Promise.all([u.isOwner(), u.canEdit()]).then(function (r) { return !!(r[0] || r[1]); });
+    }).then(function (isTeacher) {
+      if (!isTeacher) return;
+      state.teacher = true;
+      if (state.view === 'home' && !location.hash) state.view = 'teacher';
+      render();
+      return window.claude.use('db').then(function (db) {
+        state.db = db || null;
+        if (db) subscribe();
+        if (state.view === 'teacher' || state.view === 'result') render();
+      });
+    }).catch(function () {});
+  }
+
+  /* ---------- events ---------- */
+  function onClick(e) {
+    var b = e.target.closest ? e.target.closest('[data-act]') : null; if (!b || b.disabled) return;
+    var act = b.getAttribute('data-act'), r = state.run, qid = r ? r.order[r.cur] : null;
+    switch (act) {
+      case 'tab': go(b.getAttribute('data-tab')); break;
+      case 'home': go('home'); break;
+      case 'open': go('start', b.getAttribute('data-id')); break;
+      case 'start': startTest(); break;
+      case 'pick': r.answers[qid] = Number(b.getAttribute('data-o')); saveRun(); render(); refocus('[data-o="' + r.answers[qid] + '"]'); break;
+      case 'clear': delete r.answers[qid]; saveRun(); render(); break;
+      case 'mark': r.marked[qid] = !r.marked[qid]; saveRun(); render(); refocus('[data-act="mark"]'); break;
+      case 'prev': if (r.cur > 0) { r.cur--; saveRun(); render(); } break;
+      case 'next': if (r.cur < r.order.length - 1) { r.cur++; saveRun(); render(); } break;
+      case 'jump': r.cur = Number(b.getAttribute('data-i')); saveRun(); render(); break;
+      case 'ask-submit': askSubmit(); break;
+      case 'cancel-submit': closeOverlay(); break;
+      case 'do-submit': finish(false); break;
+      case 'copy-result': copyText(state.result.msg, function (m) { state.copyMsg = m; var s = app.querySelector('.send .row'); if (s) { var old = s.querySelector('.msg'); if (old) old.remove(); var sp = document.createElement('span'); sp.className = 'msg ok'; sp.setAttribute('role', 'status'); sp.textContent = m; s.appendChild(sp); } }); break;
+      case 'copy': copyText(b.getAttribute('data-text'), function (m) { b.textContent = m === 'Copied.' ? 'Copied' : 'Copy failed'; }); break;
+      case 'save-here':
+        saveAttempt(state.result.att, 'this-device', function (ok, dup) {
+          state.saveMsg = ok ? { cls: 'ok', text: dup ? 'Already in the score history.' : 'Saved to the score history.' } : { cls: 'err', text: 'Could not save. Try again.' };
+          if (state.view === 'result') { var y = window.scrollY; render(); try { window.scrollTo(0, y); } catch (e2) {} }
+        }); break;
+      case 'import': doImport(); break;
+      case 'detail': var id = b.getAttribute('data-id'); state.openAttempt = state.openAttempt === id ? null : id; keepImport(); render(); break;
+      case 'del-ask': state.confirmDelete = b.getAttribute('data-id'); keepImport(); render(); break;
+      case 'del-no': state.confirmDelete = null; keepImport(); render(); break;
+      case 'del-yes':
+        var did = b.getAttribute('data-id'); state.confirmDelete = null;
+        if (state.db) state.db.collection('attempts').doc(did).delete().then(function () {}, function () { state.importMsg = { cls: 'err', text: 'The attempt could not be deleted.' }; render(); });
+        break;
+    }
+  }
+  function keepImport() { var el = document.getElementById('import-text'); if (el) state.importText = el.value; }
+  function refocus(sel) { var el = app.querySelector(sel); if (el) try { el.focus(); } catch (e) {} }
+
+  app.addEventListener('click', onClick);
+  overlay.addEventListener('click', onClick);
+  tabs.addEventListener('click', onClick);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closeOverlay(); });
+  document.addEventListener('visibilitychange', function () {
+    if (!state.run || state.view !== 'test') return;
+    if (document.hidden) { hiddenAt = Date.now(); return; }
+    /* Count it only when he was really away, not on a reload or a quick flicker. */
+    if (hiddenAt && Date.now() - hiddenAt > 1500) { state.run.leaves = (state.run.leaves || 0) + 1; saveRun(); }
+    hiddenAt = 0; tick();
+  });
+  var resizeT = null;
+  window.addEventListener('resize', function () {
+    if (state.view !== 'teacher') return;
+    clearTimeout(resizeT);
+    resizeT = setTimeout(function () { if (state.view === 'teacher' && document.activeElement !== document.getElementById('import-text')) { keepImport(); render(); } }, 200);
+  });
+  window.addEventListener('hashchange', function () { if (state.view === 'home' || state.view === 'start' || state.view === 'teacher') routeHash(); });
+  function routeHash() {
+    var h = (location.hash || '').replace(/^#/, '');
+    if (h && testById(h)) { go('start', h); return true; }
+    return false;
+  }
+
+  /* ---------- boot ---------- */
+  var saved = lsGet('ct.run');
+  if (saved && testById(saved.testId) && saved.order && saved.optOrder && saved.startedAt) {
+    state.run = saved; state.testId = saved.testId;
+    if (remaining() > 0) { state.view = 'test'; startTimer(); render(); } else finish(true);
+  } else if (!routeHash()) render();
+  initTeacher();
+})();
+</script>
+
+</body>
+</html>
